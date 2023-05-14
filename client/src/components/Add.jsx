@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from 'axios';
 import Dropdown from "./Dropdown";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
@@ -17,19 +18,35 @@ function Add() {
     { value: "other", label: "Other" },
   ];
 
-  const customer = {
-    phoneNumber,
-    name,
-    address,
-    religion,
-    gender,
-  };
 
-  const handleSupmit = (e) => {};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const customer = {
+      phoneNumber,
+      name,
+      address,
+      religion,
+      gender,
+    };
+
+    try {
+      const response = await axios.post('http://localhost:5000/users', customer);
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+
+    setPhoneNumber("");
+    setName("");
+    setAddress("");
+    setReligion("");
+    setGender("");
+  }
 
   return (
     <div className="form-container">
-      <form className="add-form" onSubmit={handleSupmit}>
+      <form className="add-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="phoneNumber" className="form-label">
             Phone Number   رقم الهاتف
