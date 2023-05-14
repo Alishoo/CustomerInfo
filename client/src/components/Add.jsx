@@ -30,7 +30,7 @@ function Add() {
   return (
     <div className="form-container">
       <form className="add-form" onSubmit={handleSupmit}>
-        <div className="form-groub">
+        <div className="form-group">
           <label htmlFor="phoneNumber" className="form-label">
             Phone Number   رقم الهاتف
           </label>
@@ -44,7 +44,7 @@ function Add() {
           />
         </div>
 
-        <div tabIndex="1" className="form-groub">
+        <div className="form-group">
           <label htmlFor="customerName" className="form-label">
             Name   الأسم 
           </label>
@@ -58,7 +58,7 @@ function Add() {
           />
         </div>
 
-        <div className="form-groub">
+        <div className="form-group">
           <label htmlFor="address" className="form-label">
             Address   العنوان 
           </label>
@@ -72,7 +72,7 @@ function Add() {
           </div>
         </div>
 
-        <div className="form-groub">
+        <div className="form-group">
           <label htmlFor="religion" className="form-label">
             Religion   الدين
           </label>
@@ -98,7 +98,7 @@ function Add() {
           </div>
         </div>
 
-        <div className="form-groub">
+        <div className="form-group">
           <label htmlFor="gender" className="form-label">
             Gender   الجنس
           </label>
@@ -124,7 +124,7 @@ function Add() {
           </div>
         </div>
 
-        <div className="form-groub">
+        <div className="form-group">
           <button type="submit"> Submit</button>
         </div>
       </form>
