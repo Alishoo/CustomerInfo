@@ -27,13 +27,13 @@ app.get("/customer", (req,res)=>{
 })
 
 app.post("/customer", (req, res) => {
-    const q = "INSERT INTO customer (`name`, `phoneNumber`, `address`, `age`, `gender`) VALUES (?)";
+    const q = "INSERT INTO customer (`name`, `phoneNumber`, `address`, `religion`, `gender`) VALUES (?)";
   
     const values = [
       req.body.name,
       req.body.phoneNumber,
       req.body.address,
-      req.body.age,
+      req.body.religion,
       req.body.gender,
     ];
   

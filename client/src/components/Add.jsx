@@ -22,6 +22,16 @@ function Add() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const isValid= (phoneNumber) => {
+      if (! phoneNumber.match(/^((\+?971)|0)?5[024568]\d{7}$/)) {
+        return 'Invalid value: '+phoneNumber;
+      } else if (! phoneNumber.match(/^((\+?971)|0)?5[024568]\d{7}$/)) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
     const customer = {
       phoneNumber,
       name,
@@ -31,7 +41,7 @@ function Add() {
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/users', customer);
+      const response = await axios.post('http://localhost:8800/customer', customer);
       console.log(response.data);
     } catch (error) {
       console.log(error);
@@ -52,7 +62,6 @@ function Add() {
             Phone Number   رقم الهاتف
           </label>
           <PhoneInput
-            // className="form-control"
             country={"ae"}
             onlyCountries={["ae"]}
             id="phoneNumber"
@@ -84,7 +93,7 @@ function Add() {
               isSearchable
               placeHolder="Select..."
               options={addressOptions}
-              onChange={(value) => setAddress(value)}
+              onChange={(e) => setAddress(e.value)}
             />
           </div>
         </div>
